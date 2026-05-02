@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarberHub | Premium Grooming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="barberstyle.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+
+<header>
+    <h1>BarberHub</h1>
+    <p>Precision Crafted Grooming</p>
+    <button class="btn" style="width: auto;" onclick="scrollToSection('booking')">Book Your Chair</button>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#gallery">Portfolio</a>
+    <a href="#booking">Appointments</a>
+    <a href="#feedback">Reviews</a>
+</nav>
+
+<section id="about">
+    <h2>The Master Barber</h2>
+    <div class="about-container">
+        <img src="assets/winsan.jpg" alt="Owner of Barberhub, Winsan Fades. Cutting a customer's hair." class="about-image">
+        <div class="about-text">
+            <h3 style="color: var(--gold); font-family: 'Playfair Display'; font-size: 2rem; margin-top: 0;">Winsan Fades</h3>
+            <p style="font-size: 1.1rem; font-weight: 300;">
+                With a passion for precision and an eye for classic style, Winsan founded BarberHub to bring premium grooming to the modern man. 
+                He believes that a haircut is more than just maintenance—it's a statement of character. 
+                Whether you're looking for a sharp fade or a classic trim, Winsan's chair is where tradition meets perfection.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+        <div class="portfolio-item">
+            <img src="assets/fade.jpg" alt="Fade">
+            <p>The Signature Fade</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="assets/haircut.jpg" alt="Haircut">
+            <p>Classic Precision Cut</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="assets/trim.jpg" alt="Trim">
+            <p>Detail Maintenance</p>
+        </div>
+    </div>
+</section>
+
+<section id="booking">
+    <h2>Reserve Your Appointment Now</h2>
+    <div class="booking-container">
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="">
+        </div>
+        
+        <div class="input-group">
+            <label>Gmail Address</label>
+            <input type="email" id="contact" placeholder="example@gmail.com">
+        </div>
+
+        <div class="input-group">
+            <label>Select Service</label>
+            <select id="service">
+                <option value="Haircut">Haircut - 350</option>
+                <option value="Fade">Fade - 300</option>
+                <option value="Trim">Trim - 350</option>
+                <option value="Shave">Shave - 300</option>
+                <option value="Groom">Exclusive Grooming - 1500</option>
+            </select>
+        </div>
+
+        <div style="display: flex; gap: 20px;">
+            <div class="input-group" style="flex: 1;">
+                <label>Date</label>
+                <input type="date" id="date">
+            </div>
+            <div class="input-group" style="flex: 1;">
+                <label>Time</label>
+                <select id="time"></select>
+            </div>
+        </div>
+
+        <button class="btn" id="book-btn" onclick="book()">Confirm Booking</button>
+        <p id="booking-status" style="margin-top: 14px; font-size: 0.85rem; text-align: center; color: var(--gold); display: none;"></p>
+    </div>
+</section>
+
+<section id="feedback">
+    <h2>Client Feedback</h2>
+    <div id="stars" style="margin-bottom: 20px;">
+        <span class="star" onclick="rate(1)">★</span>
+        <span class="star" onclick="rate(2)">★</span>
+        <span class="star" onclick="rate(3)">★</span>
+        <span class="star" onclick="rate(4)">★</span>
+        <span class="star" onclick="rate(5)">★</span>
+    </div>
+    <textarea id="comment" rows="3" placeholder="Tell us about your experience..."></textarea>
+    <button class="btn" style="margin-top: 15px;" onclick="submitFeedback()">Post Review</button>
+    <div id="reviews" style="margin-top: 40px; text-align: left;"></div>
+</section>
+
+<div id="confirmation-overlay">
+    <div class="modal">
+        <h2 style="margin-top: 0;">Booking Confirmed</h2>
+        <p id="conf-details"></p>
+        <p style="font-size: 0.9rem; color: var(--text-gray);">A confirmation email for your <span id="conf-service" style="color:gold"></span> has been sent to your inbox.</p>
+        <button class="btn" onclick="closeModal()">Back to Home</button>
+    </div>
+</div>
+
+<script src="barberscript.js"></script>
+
+</body>
+</html>
